@@ -7,7 +7,10 @@ const Hero = ({ onNavigate }) => {
     { value: '2+', label: 'Yrs Exp.' },
     { value: '10+', label: 'Clients' },
   ]
+  const API_URL = import.meta.env.VITE_API_URL
 
+  console.log(API_URL);
+  
   return (
     <section
       id="home"
