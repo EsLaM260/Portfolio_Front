@@ -6,15 +6,16 @@ import ProjectPanel from './ProjectPanel'
 const API_URL = import.meta.env.VITE_API_URL
 
 const Portfolio = () => {
-  const [projects, setProjects]         = useState([])
-  const [loading, setLoading]           = useState(true)
-  const [error, setError]               = useState(null)
+  const [projects, setProjects] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
+        console.log(API_URL);
         const res = await fetch(`${API_URL}/api/projects`)
         if (!res.ok) throw new Error(`Server responded with ${res.status}`)
         const data = await res.json()
@@ -30,7 +31,7 @@ const Portfolio = () => {
     fetchProjects()
   }, [])
 
-  const filters  = ['All', 'FullStack App', 'Frontend', 'Backend']
+  const filters = ['All', 'FullStack App', 'Frontend', 'Backend']
   const filtered = activeFilter === 'All'
     ? projects
     : projects.filter((p) => p.filter === activeFilter)
@@ -57,11 +58,10 @@ const Portfolio = () => {
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}
-                className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                  activeFilter === f
+                className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${activeFilter === f
                     ? 'bg-[#22c55e]/10 text-[#22c55e] border border-[#22c55e]/20'
                     : 'text-[#555] hover:text-gray-300 border border-transparent hover:border-[#282828]'
-                }`}
+                  }`}
               >
                 {f}
               </button>
@@ -155,9 +155,8 @@ const Portfolio = () => {
                       {project.images.map((_, idx) => (
                         <div
                           key={idx}
-                          className={`h-[3px] rounded-full transition-all ${
-                            idx === 0 ? 'w-5 bg-[#22c55e]' : 'w-2 bg-white/30'
-                          }`}
+                          className={`h-[3px] rounded-full transition-all ${idx === 0 ? 'w-5 bg-[#22c55e]' : 'w-2 bg-white/30'
+                            }`}
                         />
                       ))}
                     </div>

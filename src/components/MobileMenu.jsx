@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Home, User, FileText, Briefcase, Mail, Github, Linkedin, Twitter } from 'lucide-react'
+import ProfileImage from '../assets/image/profileImage.jpg'
 
 const navItems = [
   { id: 'home',      label: 'Home',      icon: Home     },
@@ -62,7 +63,7 @@ const MobileMenu = ({ isOpen, onClose, activeSection, onNavigate }) => {
                 <div className="relative flex-shrink-0">
                   <div className="w-11 h-11 rounded-full overflow-hidden border border-[#252525]">
                     <img
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=150&h=150"
+                      src={ProfileImage}
                       alt="Eslam Mostafa"
                       className="w-full h-full object-cover"
                     />
