@@ -12,11 +12,10 @@ const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
 
-  
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        console.log(API_URL);
         const res = await fetch(`${API_URL}/api/projects`)
         if (!res.ok) throw new Error(`Server responded with ${res.status}`)
         const data = await res.json()
