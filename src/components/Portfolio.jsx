@@ -12,6 +12,7 @@ const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
 
+  
   useEffect(() => {
     const fetchProjects = async () => {
       try {
